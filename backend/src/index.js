@@ -14,19 +14,27 @@ app.use(express.static(path.join(__dirname, "../uploads")));
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("연결 완료");
+    console.log("연결완료");
   })
   .catch((err) => {
     console.log(err);
   });
 
+// app.get("/", (req, res, next) => {
+//   setImmediate(() => {
+//     next(new Error("it is an error"));
+//   });
+// });
+
 app.get("/", (req, res) => {
-  res.send("hello, World");
+  res.send("안뇽안뇽");
 });
 
-app.post("/", (req, res) => {
-  console.log(req.body);
-  res.json(req.body);
+app.use("/users", require("./routes/users"));
+
+app.use((error, req, res, next) => {
+  res.status(err.status || 500);
+  res.send(error.message || "서버에서 에러가 발생함");
 });
 
 app.listen(PORT, () => {
