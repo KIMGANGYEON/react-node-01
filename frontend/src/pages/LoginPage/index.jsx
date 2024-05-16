@@ -36,7 +36,7 @@ const RegisterPage = () => {
   return (
     <section className="flex flex-col justify-center mt-20 max-w-xl m-auto">
       <div className="p-6 bg-white rounded-md shadow-md">
-        <h1 className="text-4xl font-semibold text-center">회원가입</h1>
+        <h1 className="text-4xl font-semibold text-center">로그인</h1>
         <form className="mt-6" onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-2">
             <label
@@ -87,7 +87,7 @@ const RegisterPage = () => {
           </div>
           <p className="mt-8 text-m font-light text-center text-gray-700">
             아이디가 없다면?
-            <a href="/login" className="font-medium hover:underline ml-2">
+            <a href="/register" className="font-medium hover:underline ml-2">
               회원가입
             </a>
           </p>
