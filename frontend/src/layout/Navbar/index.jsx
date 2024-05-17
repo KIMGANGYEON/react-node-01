@@ -22,10 +22,12 @@ const Navbar = () => {
           </div>
 
           <div className="hidden sm:block text-2xl">
-            <NavItem />
+            <NavItem mobile={false} />
           </div>
         </div>
-        <div className="block sm:hidden">{menu && <NavItem />}</div>
+        <div className="block sm:hidden">
+          {menu && <NavItem mobile={true} />}
+        </div>
       </div>
     </section>
   );

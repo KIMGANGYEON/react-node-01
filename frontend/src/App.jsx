@@ -15,6 +15,10 @@ import "react-toastify/ReactToastify.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authUser } from "./store/thunkFunctions";
+import HistoryPage from "./pages/HistoryPage";
+import CartPage from "./pages/CartPage";
+import DetailProductPage from "./pages/DetailProduct";
+import UploadProductPage from "./pages/UploadProductPage";
 
 function Layout() {
   return (
@@ -53,6 +57,10 @@ function App() {
         {/* 로그인한 사람만 갈 수 이씀 */}
         <Route element={<ProtectedRoutes isAuth={isAuth} />}>
           <Route path="/protected" element={<ProtectedPage />} />
+          <Route path="/products/upload" element={<UploadProductPage />} />
+          <Route path="/product/productId" element={<DetailProductPage />} />
+          <Route path="/user/cate" element={<CartPage />} />
+          <Route path="/history" element={<HistoryPage />} />
         </Route>
 
         {/* 로그인한 사람만 갈 수 없음 */}

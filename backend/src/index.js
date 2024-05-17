@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/users", require("./routes/users"));
+app.use("/products", require("./routes/products"));
 
 app.use((error, req, res, next) => {
   res.status(err.status || 500);
