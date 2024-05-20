@@ -79,4 +79,19 @@ router.post("/", auth, async (req, res, next) => {
   }
 });
 
+router.get("/:id", async (req, res, next) => {
+  const type = req.query.type;
+  let productIds = req.params.id;
+
+  try {
+    const product = await Product.find({ _id: { $in: productIds } }).populate(
+      "writer"
+    );
+
+    return res.status(200).send(product);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
