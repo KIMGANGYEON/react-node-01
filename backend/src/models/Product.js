@@ -33,5 +33,18 @@ const productScheam = mongoose.Schema({
   },
 });
 
+productScheam.index(
+  {
+    title: "text",
+    description: "text",
+  },
+  {
+    weights: {
+      title: 5,
+      description: 1,
+    },
+  }
+);
+
 const Product = mongoose.model("Product", productScheam);
 module.exports = Product;
